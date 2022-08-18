@@ -4,6 +4,7 @@ namespace Sorethea\KubeAdmin;
 
 use Filament\PluginServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Sorethea\KubeAdmin\Filament\Pages\Profile;
 use Sorethea\KubeAdmin\Filament\Resources\PermissionResource;
 use Sorethea\KubeAdmin\Filament\Resources\RoleResource;
 use Sorethea\KubeAdmin\Filament\Resources\UserResource;
@@ -19,8 +20,14 @@ class KubeAdminResourceServiceProvider extends PluginServiceProvider
         RoleResource::class,
     ];
 
+    protected array $pages = [
+        Profile::class,
+    ];
+
     public function configurePackage(Package $package): void
     {
         $package->name('kube-admin');
     }
+
+
 }
