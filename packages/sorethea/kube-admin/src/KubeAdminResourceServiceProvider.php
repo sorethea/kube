@@ -31,11 +31,6 @@ class KubeAdminResourceServiceProvider extends PluginServiceProvider
         $package->name('kube-admin');
     }
 
-    public function boot()
-    {
-        Filament::registerUserMenuItems([
-            'account' => UserMenuItem::make()->url("profile"),
-        ]);
-    }
+
 
 }

@@ -2,6 +2,8 @@
 
 namespace Sorethea\KubeAdmin;
 
+use Filament\Facades\Filament;
+use Filament\Navigation\UserMenuItem;
 use Illuminate\Support\ServiceProvider;
 
 class KubeAdminServiceProvider extends ServiceProvider
@@ -11,6 +13,11 @@ class KubeAdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        Filament::registerUserMenuItems([
+            'account' => UserMenuItem::make()->url(route("filament.pages.profiles")),
+        ]);
+
         /*
          * Optional methods to load your package assets
          */
@@ -41,6 +48,7 @@ class KubeAdminServiceProvider extends ServiceProvider
 
             // Registering package commands.
             $this->commands([]);
+
         }
     }
 
