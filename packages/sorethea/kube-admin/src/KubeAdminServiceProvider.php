@@ -14,10 +14,6 @@ class KubeAdminServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        Filament::registerUserMenuItems([
-            'account' => UserMenuItem::make()->url(route("filament.pages.profiles")),
-        ]);
-
         /*
          * Optional methods to load your package assets
          */
@@ -25,6 +21,11 @@ class KubeAdminServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'kube-admin');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        Filament::registerUserMenuItems([
+            'account' => UserMenuItem::make()->url(config("filament.path")."profile"),
+        ]);
+
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

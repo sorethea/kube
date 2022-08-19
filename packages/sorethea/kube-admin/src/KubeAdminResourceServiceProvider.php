@@ -32,5 +32,4 @@ class KubeAdminResourceServiceProvider extends PluginServiceProvider
     }
 
 
-
 }
