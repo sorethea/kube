@@ -23,7 +23,7 @@ class KubeAdminServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         Filament::registerUserMenuItems([
-            'account' => UserMenuItem::make()->url(config("filament.path")."profile"),
+            'account' => UserMenuItem::make()->url("profile"),
         ]);
 
 
