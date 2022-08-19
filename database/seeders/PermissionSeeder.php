@@ -43,7 +43,7 @@ class PermissionSeeder extends Seeder
         ];
         $user = User::create([
             "name"=>"Administrator",
-            "email"=>"admin@filakube.com",
+            "email"=>"admin@kube.com",
             "password"=>Hash::make("12345678"),
         ]);
 

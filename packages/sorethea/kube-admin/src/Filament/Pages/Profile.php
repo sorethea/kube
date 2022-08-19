@@ -8,9 +8,9 @@ class Profile extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
 
-    protected static string $view = 'filament.pages.profile';
+    protected static string $view = 'kube-admin::filament.pages.profile';
 
-    protected static bool $shouldRegisterNavigation = false;
+    protected static bool $shouldRegisterNavigation = true;
 
     protected function getTitle(): string
     {

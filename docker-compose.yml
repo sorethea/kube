@@ -3,8 +3,8 @@ services:
     app:
         build:
             args:
-                user: sorethea
-                uid: 501
+                user: sorok
+                uid: 1000
             context: ./
             dockerfile: Dockerfile
         image: kube
@@ -21,7 +21,7 @@ services:
         container_name: kube-db
         restart: unless-stopped
         ports:
-            -   30336:3306
+            -   30337:3306
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
             MYSQL_RANDOM_ROOT_PASSWORD: 1

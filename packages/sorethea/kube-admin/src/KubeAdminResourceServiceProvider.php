@@ -2,6 +2,8 @@
 
 namespace Sorethea\KubeAdmin;
 
+use Filament\Facades\Filament;
+use Filament\Navigation\UserMenuItem;
 use Filament\PluginServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Sorethea\KubeAdmin\Filament\Pages\Profile;
@@ -29,5 +31,11 @@ class KubeAdminResourceServiceProvider extends PluginServiceProvider
         $package->name('kube-admin');
     }
 
+    public function boot()
+    {
+        Filament::registerUserMenuItems([
+            'account' => UserMenuItem::make()->url("profile"),
+        ]);
+    }
 
 }
