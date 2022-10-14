@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-        \Sorethea\KubeAdmin\KubeAdminServiceProvider::class,
+        //\Sorethea\KubeAdmin\KubeAdminServiceProvider::class,
         /*
          * Application Service Providers...
          */
