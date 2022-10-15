@@ -24,9 +24,7 @@ services:
             -   3306:3306
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_RANDOM_ROOT_PASSWORD: 1
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
             SERVICE_TAGS: dev
             SERVICE_NAME: mysql
         volumes:
@@ -39,7 +37,7 @@ services:
         container_name: kube-nginx
         restart: unless-stopped
         ports:
-            - 8002:80
+            - 80:80
         volumes:
             - ./:/var/www
             - ./docker-compose/nginx:/etc/nginx/conf.d/
