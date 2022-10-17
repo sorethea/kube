@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
  */
 class UserAPIController extends AppBaseController
 {
-    use Authenticatable;
+
     private UserRepository $userRepository;
 
     public function __construct(UserRepository $userRepo)
