@@ -11,6 +11,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class UserAPIController
@@ -141,8 +142,14 @@ class UserAPIController extends AppBaseController
         ]);
         try {
             $user = $this->userRepository->create([
-
+                'name'=>$request->get('name')??'',
+                'phone'=>$request->get('phone')??'',
+                'password'=>Hash::make($request->get('password')),
+                'device_token'=>$request->get('device_token')??'',
             ]);
+            $token = $user->creatToken('api-login');
+            $user->api_token = $token->plainTextToken;
+            return $this->sendResponse($user->toArray(),'User login success!');
         }catch (\Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());
         }
