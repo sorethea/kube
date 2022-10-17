@@ -117,7 +117,9 @@ class UserAPIController extends AppBaseController
         try {
             if(Auth::attempt($credentials)){
                 $user = Auth::user();
+                $user->tokens()->delete();
                 $token = $user->createToken("api-login");
+                $user->api_token = $token;
                 return $this->sendResponse($user->toArray(),'User login success!');
             }
         }catch (\Exception $exception){
