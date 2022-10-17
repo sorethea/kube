@@ -127,7 +127,7 @@ class UserAPIController extends AppBaseController
                 if($user){
                     return $this->sendError("Unauthenticated.",403);
                 }else{
-                    return $this->register($request);
+                    $this->register($request);
                 }
             }
         }catch (\Exception $exception){
