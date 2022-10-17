@@ -10,10 +10,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia;
 
     public $table = 'users';
 
@@ -49,4 +53,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('icon')->fit(Manipulations::FIT_CROP,100,100);
+        $this->addMediaConversion('thumb')->fit(Manipulations::FIT_CROP,300,300);
+        $this->addMediaConversion('optimize')->fit(Manipulations::FIT_CROP,800);
+    }
 }
