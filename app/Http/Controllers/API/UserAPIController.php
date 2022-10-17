@@ -7,14 +7,17 @@ use App\Http\Requests\API\CreateUserAPIRequest;
 use App\Http\Requests\API\UpdateUserAPIRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class UserAPIController
  */
 class UserAPIController extends AppBaseController
 {
+    use Authenticatable;
     private UserRepository $userRepository;
 
     public function __construct(UserRepository $userRepo)
@@ -107,10 +110,16 @@ class UserAPIController extends AppBaseController
     }
 
     public function login(Request $request){
-        $request->validate([
+        $credentials = $request->validate([
             "email"=>"required",
             "password"=>"required",
         ]);
-        return $this->sendResponse($request->input(),"User login success");
+        try {
+            if(Auth::attempt($credentials)){
+                return $this->sendResponse(\auth()->user(),'User login success!');
+            }
+        }catch (\Exception $exception){
+            return $this->sendError($exception->getMessage(),$exception->getCode());
+        }
     }
 }
