@@ -28,7 +28,15 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make("name")->required(),
+                Forms\Components\TextInput::make("email")->rules([
+                    'unique:users'
+                ]),
+                Forms\Components\TextInput::make("phone")->rules([
+                    'unique:users'
+                ]),
+                Forms\Components\Toggle::make("active"),
+                Forms\Components\SpatieMediaLibraryFileUpload::make("avatar"),
             ]);
     }
 
@@ -36,6 +44,7 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\SpatieMediaLibraryImageColumn::make('avatar'),
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('phone')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('email')->sortable()->searchable(),
