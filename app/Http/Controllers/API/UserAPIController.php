@@ -111,6 +111,6 @@ class UserAPIController extends AppBaseController
 //            "email"=>"required",
 //            "password"=>"required",
 //        ]);
-        return $this->sendResponse($request,"User login success");
+        return $this->sendResponse($request->input(),"User login success");
     }
 }
