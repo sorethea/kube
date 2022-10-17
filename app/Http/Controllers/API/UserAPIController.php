@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\CreateUserAPIRequest;
 use App\Http\Requests\API\UpdateUserAPIRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 /**
  * Class UserAPIController
  */
-class UserAPIController extends Controller
+class UserAPIController extends AppBaseController
 {
     private UserRepository $userRepository;
 
