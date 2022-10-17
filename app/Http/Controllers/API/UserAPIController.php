@@ -111,7 +111,7 @@ class UserAPIController extends AppBaseController
 
     public function login(Request $request){
         $credentials = $request->validate([
-            "email"=>"required",
+            "phone"=>"required",
             "password"=>"required",
         ]);
         try {
