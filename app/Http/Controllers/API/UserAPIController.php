@@ -122,7 +122,12 @@ class UserAPIController extends AppBaseController
                 $user->api_token = $token->plainTextToken;
                 return $this->sendResponse($user->toArray(),'User login success!');
             }else{
-                return $this->sendError("Unauthenticated.",403);
+                $user = User::where('phone',$request->get('phone'))->first();
+                if($user){
+                    return $this->sendError("Unauthenticated.",403);
+                }else{
+                    $this->register($request);
+                }
             }
         }catch (\Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());
@@ -131,13 +136,13 @@ class UserAPIController extends AppBaseController
 
     public function register(Request $request){
         $request->validate([
-            'name'=>'required',
             'phone'=>'required|unique:users',
             'password'=>'required',
-            'device_token'=>'required',
         ]);
         try {
+            $user = $this->userRepository->create([
 
+            ]);
         }catch (\Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());
         }
