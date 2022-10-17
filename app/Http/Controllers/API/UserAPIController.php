@@ -119,7 +119,7 @@ class UserAPIController extends AppBaseController
                 $user = Auth::user();
                 $user->tokens()->delete();
                 $token = $user->createToken("api-login");
-                $user->api_token = $token;
+                $user->api_token = $token->plainTextToken;
                 return $this->sendResponse($user->toArray(),'User login success!');
             }
         }catch (\Exception $exception){
