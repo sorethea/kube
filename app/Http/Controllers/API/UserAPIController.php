@@ -8,12 +8,12 @@ use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
+use App\Http\Controllers\Controller;
 
 /**
  * Class UserAPIController
  */
-class UserAPIController extends AppBaseController
+class UserAPIController extends Controller
 {
     private UserRepository $userRepository;
 
