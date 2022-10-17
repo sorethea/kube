@@ -121,6 +121,8 @@ class UserAPIController extends AppBaseController
                 $token = $user->createToken("api-login");
                 $user->api_token = $token->plainTextToken;
                 return $this->sendResponse($user->toArray(),'User login success!');
+            }else{
+                return $this->sendError("Unauthenticated.",403);
             }
         }catch (\Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());

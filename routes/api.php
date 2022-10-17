@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('login', '\App\Http\Controllers\API\UserAPIController@login');
+Route::post('register', '\App\Http\Controllers\API\UserAPIController@register');
 
 Route::resource('users', App\Http\Controllers\API\UserAPIController::class)
     ->except(['create', 'edit']);
