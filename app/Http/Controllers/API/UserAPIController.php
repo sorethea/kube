@@ -116,7 +116,8 @@ class UserAPIController extends AppBaseController
         ]);
         try {
             if(Auth::attempt($credentials)){
-                return $this->sendResponse(\auth()->user(),'User login success!');
+                $user = Auth::user();
+                return $this->sendResponse($user->toArray(),'User login success!');
             }
         }catch (\Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());
