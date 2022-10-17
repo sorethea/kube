@@ -128,4 +128,18 @@ class UserAPIController extends AppBaseController
             return $this->sendError($exception->getMessage(),$exception->getCode());
         }
     }
+
+    public function register(Request $request){
+        $request->validate([
+            'name'=>'required',
+            'phone'=>'required|unique:users',
+            'password'=>'required',
+            'device_token'=>'required',
+        ]);
+        try {
+
+        }catch (\Exception $exception){
+            return $this->sendError($exception->getMessage(),$exception->getCode());
+        }
+    }
 }
