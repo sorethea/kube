@@ -147,6 +147,7 @@ class UserAPIController extends AppBaseController
                 'password'=>Hash::make($request->get('password')),
                 'device_token'=>$request->get('device_token')??'',
             ]);
+            \auth()->login($user);
             $token = $user->creatToken('api-login');
             $user->api_token = $token->plainTextToken;
             return $this->sendResponse($user->toArray(),'User login success!');
