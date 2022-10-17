@@ -107,10 +107,10 @@ class UserAPIController extends AppBaseController
     }
 
     public function login(Request $request){
-//        $request->validate($this,[
-//            "email"=>"required",
-//            "password"=>"required",
-//        ]);
+        $request->validate([
+            "email"=>"required",
+            "password"=>"required",
+        ]);
         return $this->sendResponse($request->input(),"User login success");
     }
 }
