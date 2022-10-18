@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\User;
-use App\Repositories\BaseRepository;
+use Prettus\Repository\Eloquent\BaseRepository;
 
 class UserRepository extends BaseRepository
 {
