@@ -10,8 +10,10 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionResource extends Resource
 {
@@ -28,7 +30,8 @@ class PermissionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make("name")->unique(Permission::class, ignorable: fn($record)=>$record)
+                Forms\Components\TextInput::make("name")->unique(Permission::class, ignorable: fn($record)=>$record),
+                Forms\Components\BelongsToManyMultiSelect::make("roles")->relationship(Role::class,"name"),
             ]);
     }
 
