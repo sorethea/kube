@@ -19,6 +19,11 @@ class RoleResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-light-bulb';
 
+    protected static function getNavigationGroup(): ?string
+    {
+        return trans("general.administration");
+    }
+
     public static function form(Form $form): Form
     {
         return $form
