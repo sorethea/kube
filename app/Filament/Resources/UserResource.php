@@ -29,12 +29,10 @@ class UserResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make("name")->required(),
-                Forms\Components\TextInput::make("email")->rules([
-                    'unique:users'
-                ]),
-                Forms\Components\TextInput::make("phone")->rules([
-                    'unique:users'
-                ]),
+                Forms\Components\TextInput::make("email")
+                    ->unique(User::class),
+                Forms\Components\TextInput::make("phone")
+                    ->unique(User::class),
                 Forms\Components\Toggle::make("active"),
                 Forms\Components\SpatieMediaLibraryFileUpload::make("avatar"),
             ]);
