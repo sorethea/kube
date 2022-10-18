@@ -63,8 +63,10 @@ class UserAPIController extends AppBaseController
      * Display the specified User.
      * GET|HEAD /users/{id}
      */
-    public function show($id): JsonResponse
+    public function show($id,Request $request): JsonResponse
     {
+        $this->userRepository->pushCriteria(new RequestCriteria($request));
+        $this->userRepository->pushCriteria(new LimitOffsetCriteria($request));
         /** @var User $user */
         $user = $this->userRepository->find($id);
 
@@ -126,7 +128,7 @@ class UserAPIController extends AppBaseController
                 $user->tokens()->delete();
                 $token = $user->createToken("api-login");
                 $user->api_token = $token->plainTextToken;
-                return $this->sendResponse($user->with('media'),'User login success!');
+                return $this->sendResponse($user->toArray(),'User login success!');
             }else{
                 $user = $this->userRepository->findByField('phone',$request->get('phone'))->first();
                 if($user){
@@ -153,9 +155,10 @@ class UserAPIController extends AppBaseController
                 'device_token'=>$request->get('device_token')??'',
             ]);
             \auth()->login($user);
+            $user = Auth::user()->with('media');
             $token = $user->creatToken('api-login');
             $user->api_token = $token->plainTextToken;
-            return $this->sendResponse($user->with('media'),'User login success!');
+            return $this->sendResponse($user->toArray(),'User login success!');
         }catch (\Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());
         }
