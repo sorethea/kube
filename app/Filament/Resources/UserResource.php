@@ -30,9 +30,9 @@ class UserResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make("name")->required(),
                 Forms\Components\TextInput::make("email")
-                    ->unique(User::class),
+                    ->unique(User::class, ignorable: fn($record)=>$record),
                 Forms\Components\TextInput::make("phone")
-                    ->unique(User::class),
+                    ->unique(User::class, ignorable: fn($record)=>$record),
                 Forms\Components\Toggle::make("active"),
                 Forms\Components\SpatieMediaLibraryFileUpload::make("avatar"),
             ]);
