@@ -6,17 +6,23 @@ ARG uid
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
+    build-essential \
     git \
     curl \
     libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
+    libgd-dev \
+    jpegoptim optipng pngquant gifsicle \
     libonig-dev \
     libxml2-dev \
     zip \
+    sudo \
     unzip \
-    jpegoptim \
-    optipng \
-    pngquant \
-    gifsicle
+    npm \
+    nodejs
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
