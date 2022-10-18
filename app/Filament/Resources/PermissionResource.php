@@ -31,7 +31,7 @@ class PermissionResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make("name")->unique(Permission::class, ignorable: fn($record)=>$record),
-                Forms\Components\BelongsToManyCheckboxList::make("roles")->label("Roles")->relationship(Role::class,"name"),
+                Forms\Components\BelongsToManyCheckboxList::make("roles")->relationship('roles',"name"),
             ]);
     }
 
