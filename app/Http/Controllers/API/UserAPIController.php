@@ -12,6 +12,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use InfyOm\Generator\Criteria\LimitOffsetCriteria;
+use Prettus\Repository\Criteria\RequestCriteria;
 
 /**
  * Class UserAPIController
@@ -32,11 +34,14 @@ class UserAPIController extends AppBaseController
      */
     public function index(Request $request): JsonResponse
     {
-        $users = $this->userRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+//        $users = $this->userRepository->all(
+//            $request->except(['skip', 'limit']),
+//            $request->get('skip'),
+//            $request->get('limit')
+//        );
+        $this->userRepository->pushCriteria(new RequestCriteria($request));
+        $this->userRepository->pushCriteria(new LimitOffsetCriteria($request));
+        $users = $this->userRepository->all();
 
         return $this->sendResponse($users->toArray(), 'Users retrieved successfully');
     }
