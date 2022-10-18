@@ -57,6 +57,5 @@ class User extends Authenticatable implements HasMedia
     {
         $this->addMediaConversion('icon')->fit(Manipulations::FIT_CROP,100,100);
         $this->addMediaConversion('thumb')->fit(Manipulations::FIT_CROP,300,300);
-        $this->addMediaConversion('optimize')->fit(Manipulations::FIT_CROP,800);
     }
 }
