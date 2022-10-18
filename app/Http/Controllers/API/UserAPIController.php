@@ -124,7 +124,7 @@ class UserAPIController extends AppBaseController
         ]);
         try {
             if(Auth::attempt($credentials)){
-                $user = Auth::user();
+                $user = Auth::user()->with("media");
                 $user->tokens()->delete();
                 $token = $user->createToken("api-login");
                 $user->api_token = $token->plainTextToken;
