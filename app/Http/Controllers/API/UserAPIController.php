@@ -126,7 +126,7 @@ class UserAPIController extends AppBaseController
                 $user->tokens()->delete();
                 $token = $user->createToken("api-login");
                 $user->api_token = $token->plainTextToken;
-                return $this->sendResponse($user->with('media')->toArray(),'User login success!');
+                return $this->sendResponse($user->with('media'),'User login success!');
             }else{
                 $user = $this->userRepository->findByField('phone',$request->get('phone'))->first();
                 if($user){
@@ -155,7 +155,7 @@ class UserAPIController extends AppBaseController
             \auth()->login($user);
             $token = $user->creatToken('api-login');
             $user->api_token = $token->plainTextToken;
-            return $this->sendResponse($user->with('media')->toArray(),'User login success!');
+            return $this->sendResponse($user->with('media'),'User login success!');
         }catch (\Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());
         }
