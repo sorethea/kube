@@ -6,11 +6,8 @@ use Spatie\LaravelSettings\Settings;
 
 class MobileSettings extends Settings
 {
-    public string $app_name;
-    public string $theme_primary;
-    public string $theme_secondary;
-    public string $theme_background;
-    public string $theme_accent;
+    public array $general;
+    public array $theme;
 
     public static function group(): string
     {
