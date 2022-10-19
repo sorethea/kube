@@ -17,7 +17,7 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        return true;//$user->can("users.viewAny");
+        return $user->can("users.viewAny");
     }
 
     /**
@@ -29,7 +29,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        return true;//$user->can("users.view");
+        return $user->can("users.view");
     }
 
     /**
@@ -40,7 +40,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return true;//$user->can("users.create");
+        return $user->can("users.create");
     }
 
     /**
@@ -52,7 +52,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        return true;// $user->can("users.update");
+        return $user->can("users.update");
     }
 
     /**
