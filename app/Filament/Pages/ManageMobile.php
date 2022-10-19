@@ -15,7 +15,7 @@ class ManageMobile extends SettingsPage
     protected function getFormSchema(): array
     {
         return [
-            TextInput::make("app_name")->required(),
+            TextInput::make("app_name"),
         ];
     }
 }
