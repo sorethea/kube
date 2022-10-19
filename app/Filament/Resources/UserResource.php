@@ -33,6 +33,7 @@ class UserResource extends Resource
                     ->unique(User::class, ignorable: fn($record)=>$record),
                 Forms\Components\TextInput::make("phone")
                     ->unique(User::class, ignorable: fn($record)=>$record),
+                Forms\Components\BelongsToManyCheckboxList::make('roles')->relationship('roles','name'),
                 Forms\Components\Toggle::make("active"),
                 Forms\Components\SpatieMediaLibraryFileUpload::make("avatar"),
             ]);
