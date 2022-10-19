@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Settings\MobileSettings;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\SettingsPage;
 
@@ -16,6 +17,7 @@ class ManageMobile extends SettingsPage
     {
         return [
             TextInput::make("general.app_name"),
+            MarkdownEditor::make("general.description"),
         ];
     }
 }
