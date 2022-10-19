@@ -6,10 +6,12 @@ use App\Filament\Resources\RoleResource\Pages;
 use App\Filament\Resources\RoleResource\RelationManagers;
 use Filament\Forms;
 use Filament\Resources\Form;
+use Filament\Resources\RelationManagers\HasManyThroughRelationManager;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Spatie\Permission\Models\Role;
 
@@ -28,7 +30,7 @@ class RoleResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make("name")->unique(Role::class, ignorable: fn($record)=>$record)
+                Forms\Components\TextInput::make("name")->unique(Role::class, ignorable: fn($record)=>$record),
             ]);
     }
 
