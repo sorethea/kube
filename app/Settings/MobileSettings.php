@@ -4,7 +4,7 @@ namespace App\Settings;
 
 use Spatie\LaravelSettings\Settings;
 
-class MobileSetting extends Settings
+class MobileSettings extends Settings
 {
     private string $app_name;
     private string $theme_primary;

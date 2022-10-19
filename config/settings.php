@@ -7,7 +7,7 @@ return [
      * put them (manually) here.
      */
     'settings' => [
-        \App\Settings\MobileSetting::class,
+        \App\Settings\MobileSettings::class,
     ],
 
     /*
