@@ -41,7 +41,11 @@ class CompanyResource extends Resource
                     ->collection("logo"),
 
                 Forms\Components\Fieldset::make('Company Details')->schema([
-
+                    Forms\Components\TextInput::make("phone"),
+                    Forms\Components\TextInput::make("email"),
+                    Forms\Components\TextInput::make("address"),
+                    Forms\Components\TextInput::make("location"),
+                    Forms\Components\MarkdownEditor::make("description"),
                 ]),
             ]);
     }
