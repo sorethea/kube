@@ -57,7 +57,7 @@ class CompanyResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\SpatieMediaLibraryImageColumn::make("logo"),
+                Tables\Columns\SpatieMediaLibraryImageColumn::make("logo")->collection("logo"),
                 Tables\Columns\TextColumn::make("name")->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("abbr")->searchable()->sortable(),
                 Tables\Columns\BooleanColumn::make("group"),
