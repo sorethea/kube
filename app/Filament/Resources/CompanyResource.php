@@ -45,7 +45,7 @@ class CompanyResource extends Resource
                     Forms\Components\TextInput::make("email"),
                     Forms\Components\TextInput::make("address"),
                     Forms\Components\TextInput::make("location"),
-                    Forms\Components\MarkdownEditor::make("description"),
+                    Forms\Components\MarkdownEditor::make("description")->columnSpan(2),
                 ]),
             ]);
     }
