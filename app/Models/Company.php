@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\ActiveScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +14,15 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Company extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new ActiveScope());
+    }
+    public function scopeGroup($query){
+        $query->where("group",true);
+    }
+
     protected $fillable =[
         "name",
         "abbr",
