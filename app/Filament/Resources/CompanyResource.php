@@ -37,6 +37,7 @@ class CompanyResource extends Resource
                 Forms\Components\TextInput::make("domain"),
                 Forms\Components\BelongsToSelect::make("parent")
                     ->relationship('parent',"name")
+                    ->searchable()
                     ->options(Company::group()->pluck("name","id")->toArray()),
                 Forms\Components\SpatieMediaLibraryFileUpload::make("logo")
                     ->collection("logo"),
