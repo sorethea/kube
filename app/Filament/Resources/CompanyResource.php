@@ -61,6 +61,7 @@ class CompanyResource extends Resource
                 Tables\Columns\SpatieMediaLibraryImageColumn::make("logo")->collection("logo"),
                 Tables\Columns\TextColumn::make("name")->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("abbr")->searchable()->sortable(),
+                Tables\Columns\TextColumn::make("parent.name")->searchable(),
                 Tables\Columns\BooleanColumn::make("group"),
                 Tables\Columns\BooleanColumn::make("active"),
             ])
