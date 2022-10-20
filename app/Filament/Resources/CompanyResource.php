@@ -56,7 +56,10 @@ class CompanyResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make("name")->searchable()->sortable(),
+                Tables\Columns\TextColumn::make("abbr")->searchable()->sortable(),
+                Tables\Columns\BooleanColumn::make("group"),
+                Tables\Columns\BooleanColumn::make("active"),
             ])
             ->filters([
                 //
@@ -67,6 +70,11 @@ class CompanyResource extends Resource
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->withoutGlobalScope('active');
     }
 
     public static function getRelations(): array
