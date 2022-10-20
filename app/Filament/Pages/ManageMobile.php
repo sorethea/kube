@@ -13,6 +13,11 @@ class ManageMobile extends SettingsPage
 
     protected static string $settings = MobileSettings::class;
 
+    protected static function getNavigationGroup(): ?string
+    {
+        return trans("general.administration");
+    }
+
     protected function getFormSchema(): array
     {
         return [
