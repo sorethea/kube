@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CompanyResource\Pages;
 use App\Filament\Resources\CompanyResource\RelationManagers;
 use App\Models\Company;
+use App\Models\Scopes\ActiveScope;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -76,7 +77,7 @@ class CompanyResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->withoutGlobalScope('active');
+        return parent::getEloquentQuery()->withoutGlobalScope(ActiveScope::class);
     }
 
     public static function getRelations(): array
