@@ -39,6 +39,10 @@ class CompanyResource extends Resource
                     ->relationship('parent',"name"),
                 Forms\Components\SpatieMediaLibraryFileUpload::make("logo")
                     ->collection("logo"),
+
+                Forms\Components\Fieldset::make('Company Details')->schema([
+
+                ]),
             ]);
     }
 
