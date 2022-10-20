@@ -39,9 +39,10 @@ class CompanyResource extends Resource
                     ->relationship('parent',"name")
                     ->searchable()
                     ->options(Company::group()->pluck("name","id")->toArray()),
+                Forms\Components\Toggle::make("group"),
+                Forms\Components\Toggle::make("active"),
                 Forms\Components\SpatieMediaLibraryFileUpload::make("logo")
                     ->collection("logo"),
-                Forms\Components\Toggle::make("group"),
                 Forms\Components\Fieldset::make('Company Details')->schema([
                     Forms\Components\TextInput::make("phone"),
                     Forms\Components\TextInput::make("email"),
