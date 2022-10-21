@@ -162,7 +162,7 @@ class UserAPIController extends AppBaseController
 
     public function settings(Request $request){
         try {
-            $settings = app(MobileSettings::class)->general;
+            $settings = app(MobileSettings::class);
             return  $this->sendResponse($settings,"Settings retrieve success.");
         }catch (Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());
