@@ -7,12 +7,14 @@ use App\Http\Requests\API\CreateUserAPIRequest;
 use App\Http\Requests\API\UpdateUserAPIRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
+use App\Settings\MobileSettings;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
+use PHPUnit\Exception;
 use Prettus\Repository\Criteria\RequestCriteria;
 
 /**
@@ -154,6 +156,15 @@ class UserAPIController extends AppBaseController
             $user->api_token = $token->plainTextToken;
             return $this->sendResponse($user->toArray(),'User login success!');
         }catch (\Exception $exception){
+            return $this->sendError($exception->getMessage(),$exception->getCode());
+        }
+    }
+
+    public function settings(Request $request){
+        try {
+            $settings = app(MobileSettings::class)->general;
+            return  $this->sendResponse($settings,"Settings retrieve success.");
+        }catch (Exception $exception){
             return $this->sendError($exception->getMessage(),$exception->getCode());
         }
     }

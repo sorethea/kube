@@ -21,5 +21,6 @@ Route::middleware('auth:sanctum')->group(function(){
 
 Route::post('login', '\App\Http\Controllers\API\UserAPIController@login');
 Route::post('register', '\App\Http\Controllers\API\UserAPIController@register');
+Route::post('settings', '\App\Http\Controllers\API\UserAPIController@settings');
 
 
