@@ -22,9 +22,9 @@ class ManageMobile extends SettingsPage
     {
         return [
             TextInput::make("general.app_name"),
+            MarkdownEditor::make("general.description"),
             TextInput::make("general.primary_color"),
             TextInput::make("general.secondary_color"),
-            MarkdownEditor::make("general.description"),
         ];
     }
 }
