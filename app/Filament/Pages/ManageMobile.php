@@ -31,7 +31,7 @@ class ManageMobile extends SettingsPage
             TextInput::make("general.second_dark_color"),
             TextInput::make("general.accent_dark_color"),
             TextInput::make("general.scaffold_dark_color"),
-            TextInput::make("general.default_language"),
+            TextInput::make("general.mobile_language"),
         ];
     }
 }
