@@ -33,7 +33,7 @@ class ManageMobile extends SettingsPage
 //            TextInput::make("general.accent_dark_color"),
 //            TextInput::make("general.scaffold_dark_color"),
 //            TextInput::make("general.mobile_language"),៊
-            KeyValue::make("generale")
+            KeyValue::make("general")
         ];
     }
 }
