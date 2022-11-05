@@ -40,8 +40,9 @@ class RoleResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make("name")->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("permissions")
-                    ->label("Permissions"),
-
+                    ->counts("permissions"),
+                Tables\Columns\TextColumn::make("users")
+                    ->counts("users"),
             ])
             ->filters([
                 //
