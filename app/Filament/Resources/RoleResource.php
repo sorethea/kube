@@ -41,7 +41,7 @@ class RoleResource extends Resource
                 Tables\Columns\TextColumn::make("name")->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("permissions_count")
                     ->counts("permissions")
-                    ->description(fn($record):string => $record->permissions->name),
+                    ->description(fn($record):string => $record->permissions),
 
             ])
             ->filters([
