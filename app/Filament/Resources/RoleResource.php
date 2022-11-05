@@ -30,8 +30,13 @@ class RoleResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make("name")->unique(Role::class, ignorable: fn($record)=>$record),
-            ]);
+                Forms\Components\Card::make()->schema([
+                    Forms\Components\TextInput::make("name")->unique(Role::class, ignorable: fn($record)=>$record),
+                ])->columnSpan(2),
+                Forms\Components\Group::make()->schema([
+
+                ])->columnSpan(1),
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
