@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-    app:
+    kube-app:
         build:
             args:
                 user: sorok
@@ -16,12 +16,12 @@ services:
         networks:
             - kube
 
-    db:
+    kube-db:
         image: mysql:8.0
         container_name: db
         restart: unless-stopped
         ports:
-            -   3306:3306
+            -   3307:3306
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -32,12 +32,12 @@ services:
         networks:
             - kube
 
-    nginx:
+    kube-web:
         image: nginx:alpine
         container_name: nginx
         restart: unless-stopped
         ports:
-            - 80:80
+            - 8000:80
         volumes:
             - ./:/var/www
             - ./docker-compose/nginx:/etc/nginx/conf.d/
