@@ -39,7 +39,9 @@ class RoleResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make("name")->searchable()->sortable(),
-                Tables\Columns\BadgeColumn::make("permissions")->counts("permissions"),
+                Tables\Columns\BadgeColumn::make("permissions")->record(function (Role $record){
+                    return $record->permissions()->count();
+                }),
             ])
             ->filters([
                 //
