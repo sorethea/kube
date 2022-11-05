@@ -3,5 +3,9 @@ return [
     'settings'=>'Settings',
     'administrator'=>'Administrator',
     'administration'=>'Administration',
-    'application'=>'Applicatoin',
+    'application'=>'Application',
+    'users'=>'Users',
+    'permissions'=>'Permissions',
+
+
 ];
