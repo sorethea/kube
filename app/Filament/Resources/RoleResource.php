@@ -34,9 +34,9 @@ class RoleResource extends Resource
                     Forms\Components\TextInput::make("name")->unique(Role::class, ignorable: fn($record)=>$record),
                 ])->columnSpan(2),
                 Forms\Components\Group::make()->schema([
-                    Forms\Components\Placeholder::make("created_at")->isHidden(fn($record):bool=>!empty($record->created_at)),
-                    Forms\Components\Placeholder::make("updated_at")->isHidden(fn($record):bool=>!empty($record->updated_at)),
-                ])->columnSpan(1),
+                    Forms\Components\Placeholder::make("created_at")->content(fn($record):string => $record->created_at->diffForHumans()),
+                    Forms\Components\Placeholder::make("updated_at")->content(fn($record):string => $record->updated_at->diffForHumans()),
+                ])->hidden(fn($record)=>$record===null)->columnSpan(1),
             ])->columns(3);
     }
 
