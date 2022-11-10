@@ -9,6 +9,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Spatie\Permission\Models\Permission;
 
 class PermissionsRelationManager extends RelationManager
 {
@@ -21,7 +22,7 @@ class PermissionsRelationManager extends RelationManager
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->unique("permissions","name",ignorable: fn($record)=>$record===null)
+                    ->unique(Permission::class,ignorable: fn($record)=>$record)
                     ->required()
                     ->maxLength(255),
             ]);
