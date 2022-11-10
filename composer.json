@@ -34,7 +34,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Sorethea\\KubeAdmin\\": "packages/sorethea/kube-admin/src/"
+            "Sorethea\\KubeAdmin\\": "packages/sorethea/kube-admin/src/",
+            "Sorethea\\Assign\\": "packages/sorethea/assign/src/"
         }
     },
     "autoload-dev": {
