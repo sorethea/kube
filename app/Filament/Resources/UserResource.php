@@ -35,7 +35,7 @@ class UserResource extends Resource
                             ->unique(User::class, ignorable: fn($record)=>$record),
                         Forms\Components\TextInput::make("phone")
                             ->unique(User::class, ignorable: fn($record)=>$record),
-                    ]),
+                    ])->columns(2),
                     Forms\Components\SpatieMediaLibraryFileUpload::make("avatar"),
                 ])->columnSpan(2),
                 Forms\Components\Card::make()->schema([
