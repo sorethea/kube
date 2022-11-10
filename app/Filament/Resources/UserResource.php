@@ -41,7 +41,10 @@ class UserResource extends Resource
                 Forms\Components\Card::make()->schema([
                     Forms\Components\BelongsToManyCheckboxList::make('roles')->relationship('roles','name'),
                     Forms\Components\Toggle::make("active"),
-
+                    Forms\Components\Group::make([
+                        Forms\Components\Placeholder::make("created_at"),
+                        Forms\Components\Placeholder::make("updated_at"),
+                    ])->hidden(fn($record)=>$record===null),
                 ])->columnSpan(1),
             ])->columns(3);
     }
