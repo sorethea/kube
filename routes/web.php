@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('assign', function(Sorethea\assign\assign $assign) {
+Route::get('assign', function(Sorethea\Assign\Assign $assign) {
     return $assign->justDoIt();
 });
