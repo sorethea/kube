@@ -21,6 +21,7 @@ class PermissionsRelationManager extends RelationManager
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->unique("permissions","name",ignorable: fn($record)=>$record===null)
                     ->required()
                     ->maxLength(255),
             ]);
