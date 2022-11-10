@@ -28,14 +28,19 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make("name")->required(),
-                Forms\Components\TextInput::make("email")
-                    ->unique(User::class, ignorable: fn($record)=>$record),
-                Forms\Components\TextInput::make("phone")
-                    ->unique(User::class, ignorable: fn($record)=>$record),
-                Forms\Components\BelongsToManyCheckboxList::make('roles')->relationship('roles','name'),
-                Forms\Components\Toggle::make("active"),
-                Forms\Components\SpatieMediaLibraryFileUpload::make("avatar"),
+                Forms\Components\Card::make()->schema([
+                    Forms\Components\TextInput::make("name")->required(),
+                    Forms\Components\TextInput::make("email")
+                        ->unique(User::class, ignorable: fn($record)=>$record),
+                    Forms\Components\TextInput::make("phone")
+                        ->unique(User::class, ignorable: fn($record)=>$record),
+                ])->columnSpan(2),
+                Forms\Components\Card::make()->schema([
+                    Forms\Components\BelongsToManyCheckboxList::make('roles')->relationship('roles','name'),
+                    Forms\Components\Toggle::make("active"),
+                    Forms\Components\SpatieMediaLibraryFileUpload::make("avatar"),
+                ])->columnSpan(1),
+
             ]);
     }
 
