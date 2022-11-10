@@ -41,12 +41,12 @@ class PermissionsRelationManager extends RelationManager
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                //Tables\Actions\DetachAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DetachAction::make(),
+                //Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                //Tables\Actions\DetachBulkAction::make(),
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DetachBulkAction::make(),
+                //Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 }
