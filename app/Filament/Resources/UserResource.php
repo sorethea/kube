@@ -40,8 +40,7 @@ class UserResource extends Resource
                     Forms\Components\Toggle::make("active"),
                     Forms\Components\SpatieMediaLibraryFileUpload::make("avatar"),
                 ])->columnSpan(1),
-
-            ]);
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
