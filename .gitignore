@@ -16,3 +16,4 @@ yarn-error.log
 /.idea
 /.vscode
 /packages/
+/packages/sorethea/laravel-state/
