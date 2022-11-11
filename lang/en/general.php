@@ -6,6 +6,10 @@ return [
     'application'=>'Application',
     'users'=>'Users',
     'permissions'=>'Permissions',
-
-
+    'draft'=>'Draft',
+    'drafted'=>'Drafted',
+    'cancel'=>'Cancel',
+    'cancelled'=>'Cancelled',
+    'approve'=>'Approve',
+    'approved'=>'Approved',
 ];

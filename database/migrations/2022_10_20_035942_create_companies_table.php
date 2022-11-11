@@ -28,7 +28,6 @@ return new class extends Migration
             $table->text('detail')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->boolean('group')->default(0);
-            $table->boolean('active')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });
