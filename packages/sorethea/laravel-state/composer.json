@@ -1,0 +1,19 @@
+{
+    "name": "sorethea/laravel-state",
+    "description": "The simple record state management for your laravel application.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sorethea\\LaravelState\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sorethea OK",
+            "email": "sorethea@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
