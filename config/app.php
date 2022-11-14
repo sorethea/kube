@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //Sorethea\Assign\AssignServiceProvider::class,
+        Sorethea\LaravelState\StateServiceProvider::class,
     ],
 
     /*
