@@ -195,7 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        //Sorethea\DocumentState\DocumentStateServiceProvider::class,
+        Sorethea\DocumentState\DocumentStateServiceProvider::class,
     ],
 
     /*
