@@ -41,7 +41,8 @@ class Company extends Model implements HasMedia
     ];
 
     protected $appends =[
-      "is_active",
+        "status",
+        "is_active",
     ];
 
     public function registerMediaConversions(Media $media = null): void
