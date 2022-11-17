@@ -18,11 +18,15 @@ class EditCompany extends EditRecord
         return [
             Actions\Action::make("submit")
                 ->requiresConfirmation()
-                ->action(fn(Model $record)=>$record->setState(1))
+                ->action(function(Model $record){
+                    if(isset($record)) $record->setState(1);
+                })
                 ->color("success"),
             Actions\Action::make("cancel")
                 ->requiresConfirmation()
-                ->action(fn(Model $record)=>$record->setState(2))
+                ->action(function(Model $record){
+                    if(isset($record)) $record->setState(2);
+                })
                 ->color("warning"),
             Actions\DeleteAction::make(),
         ];
