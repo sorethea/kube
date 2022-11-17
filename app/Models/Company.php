@@ -14,7 +14,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Company extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia, DocumentStateTrait;
+    use InteractsWithMedia, DocumentStateTrait;
 
 //    protected static function booted()
 //    {
@@ -38,6 +38,10 @@ class Company extends Model implements HasMedia
         "default_current",
         "group",
         //"active",
+    ];
+
+    protected $appends =[
+      "is_active",
     ];
 
     public function registerMediaConversions(Media $media = null): void
