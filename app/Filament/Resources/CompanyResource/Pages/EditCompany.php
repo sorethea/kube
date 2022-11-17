@@ -14,6 +14,8 @@ class EditCompany extends EditRecord
     protected function getActions(): array
     {
         return [
+            Actions\Action::make("submit")->action(fn($record)=>$record->setState(1))->color("success"),
+            Actions\Action::make("cancel")->action(fn($record)=>$record->setState(2))->color("warning"),
             Actions\DeleteAction::make(),
         ];
     }
