@@ -37,7 +37,7 @@ class Company extends Model implements HasMedia
         "detail",
         "default_current",
         "group",
-        "active",
+        //"active",
     ];
 
     public function registerMediaConversions(Media $media = null): void
