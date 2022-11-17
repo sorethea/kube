@@ -63,7 +63,7 @@ class CompanyResource extends Resource
                 Tables\Columns\TextColumn::make("abbr")->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("parent.name")->searchable(),
                 Tables\Columns\BooleanColumn::make("group"),
-                Tables\Columns\BooleanColumn::make("active"),
+                Tables\Columns\TagsColumn::make("status"),
                 Tables\Columns\BooleanColumn::make("is_active"),
             ])
             ->filters([
