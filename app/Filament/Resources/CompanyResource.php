@@ -74,8 +74,14 @@ class CompanyResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\Action::make("Submit")->action(fn($record)=>$record->setState(1))->color("success"),
-                Tables\Actions\Action::make("Cancel")->action(fn($record)=>$record->setState(2))->color("warning"),
+                Tables\Actions\Action::make("Submit")
+                    ->action(fn($record)=>$record->setState(1))
+                    ->requiresConfirmation()
+                    ->color("success"),
+                Tables\Actions\Action::make("Cancel")
+                    ->action(fn($record)=>$record->setState(2))
+                    ->requiresConfirmation()
+                    ->color("danger"),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
