@@ -41,7 +41,7 @@ class Company extends Model implements HasMedia
     ];
 
     protected $appends =[
-        "status",
+        "state",
         "is_active",
     ];
 
