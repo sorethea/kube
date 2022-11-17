@@ -7,6 +7,7 @@ use App\Models\Company;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Database\Eloquent\Model;
 
 class EditCompany extends EditRecord
 {
@@ -17,11 +18,11 @@ class EditCompany extends EditRecord
         return [
             Actions\Action::make("submit")
                 ->requiresConfirmation()
-                ->action(fn()=>$this->setState(1))
+                ->action(fn(Model $record)=>$record->setState(1))
                 ->color("success"),
             Actions\Action::make("cancel")
                 ->requiresConfirmation()
-                ->action(fn()=>$this->setState(2))
+                ->action(fn(Model $record)=>$record->setState(2))
                 ->color("warning"),
             Actions\DeleteAction::make(),
         ];
