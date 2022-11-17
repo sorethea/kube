@@ -16,10 +16,10 @@ class Company extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, DocumentStateTrait;
 
-    protected static function booted()
-    {
-        static::addGlobalScope(new ActiveScope());
-    }
+//    protected static function booted()
+//    {
+//        static::addGlobalScope(new ActiveScope());
+//    }
     public function scopeGroup($query){
         $query->where("group",true);
     }
