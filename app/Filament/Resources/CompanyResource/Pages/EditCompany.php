@@ -19,10 +19,12 @@ class EditCompany extends EditRecord
             Actions\Action::make("submit")
                 ->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
+                ->visible(fn()=>$this->record->state!=1 && auth()->user()->can("companies.manager"))
                 ->color("success"),
             Actions\Action::make("cancel")
                 ->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(2))
+                ->visible(fn()=>$this->record->state!=2 && auth()->user()->can("companies.manager"))
                 ->color("warning"),
             Actions\DeleteAction::make(),
         ];
