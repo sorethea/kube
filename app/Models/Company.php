@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Sorethea\DocumentState\Traits\DocumentStateTrait;
@@ -19,8 +20,8 @@ class Company extends Model implements HasMedia
 //        static::addGlobalScope(new ActiveScope());
 //    }
 
-    public function scopeGroup($query){
-        $query->where("group",true);
+    public function scopeGroup(Builder $query){
+        return $query->where("group",true);
     }
 
     protected $fillable =[
