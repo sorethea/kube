@@ -22,10 +22,6 @@ class User extends Authenticatable implements HasMedia
 
     public $table = 'users';
 
-    protected static function booted()
-    {
-        static::addGlobalScope(new ActiveScope());
-    }
 
     public $fillable = [
         'name',
