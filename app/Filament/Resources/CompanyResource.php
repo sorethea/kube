@@ -93,10 +93,6 @@ class CompanyResource extends Resource
             ]);
     }
 
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()->active();
-    }
 
     public static function getRelations(): array
     {
