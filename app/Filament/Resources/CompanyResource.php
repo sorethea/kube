@@ -100,6 +100,10 @@ class CompanyResource extends Resource
             //
         ];
     }
+public static function getEloquentQuery(): Builder
+{
+    return parent::getEloquentQuery()->withoutGlobalScope("active");
+}
 
     public static function getPages(): array
     {
