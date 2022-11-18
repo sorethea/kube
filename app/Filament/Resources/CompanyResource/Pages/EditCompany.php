@@ -19,6 +19,7 @@ class EditCompany extends EditRecord
             Actions\Action::make("submit")
                 ->requiresConfirmation()
                 ->action(function(Model $record){
+                    dd($record);
                     if(isset($record)) $record->setState(1);
                 })
                 ->color("success"),
