@@ -70,8 +70,8 @@ class CompanyResource extends Resource
                     2 => config("document-state.status")[2],
                 ])->colors([
                     "primary",
-                    "success"=>"Submitted",
-                    "danger"=>"Cancelled",
+                    "success"=>1,
+                    "danger"=>2,
                 ]),
             ])
             ->filters([
