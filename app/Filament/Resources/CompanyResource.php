@@ -97,7 +97,7 @@ class CompanyResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->active();
+        return parent::getEloquentQuery()->isActive();
     }
 
     public static function getRelations(): array
