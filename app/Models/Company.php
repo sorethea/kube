@@ -20,6 +20,7 @@ class Company extends Model implements HasMedia
 //    {
 //        static::addGlobalScope(new ActiveScope());
 //    }
+
     public function scopeGroup($query){
         $query->where("group",true);
     }
