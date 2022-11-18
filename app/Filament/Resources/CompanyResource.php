@@ -35,12 +35,12 @@ class CompanyResource extends Resource
                     ->unique('companies',ignorable: fn($record)=>$record)
                     ->required(),
                 Forms\Components\TextInput::make("domain"),
-                Forms\Components\BelongsToSelect::make("parent")
-                    ->relationship('parent',"name")
-                    ->searchable()
-                    ->options(Company::group()->pluck("name","id")->toArray()),
-                Forms\Components\Toggle::make("group"),
-                Forms\Components\Toggle::make("active"),
+//                Forms\Components\BelongsToSelect::make("parent")
+//                    ->relationship('parent',"name")
+//                    ->searchable()
+//                    ->options(Company::group()->pluck("name","id")->toArray()),
+//                Forms\Components\Toggle::make("group"),
+//                Forms\Components\Toggle::make("active"),
                 Forms\Components\SpatieMediaLibraryFileUpload::make("logo")
                     ->collection("logo"),
                 Forms\Components\Fieldset::make('Company Details')->schema([
