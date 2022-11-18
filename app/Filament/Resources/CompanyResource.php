@@ -68,6 +68,10 @@ class CompanyResource extends Resource
                     0 => config("document-state.status")[0],
                     1 => config("document-state.status")[1],
                     2 => config("document-state.status")[2],
+                ])->color([
+                    0=>"primary",
+                    1=>"success",
+                    2=>"danger",
                 ]),
             ])
             ->filters([
