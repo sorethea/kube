@@ -63,7 +63,9 @@ class CompanyResource extends Resource
                 Tables\Columns\TextColumn::make("abbr")->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("parent.name")->searchable(),
                 Tables\Columns\BooleanColumn::make("group"),
-                Tables\Columns\BadgeColumn::make("state")->enum([
+                Tables\Columns\BadgeColumn::make("state")
+                    ->label("Status")
+                    ->enum([
                     null => "Not Available",
                     0 => config("document-state.status")[0],
                     1 => config("document-state.status")[1],
