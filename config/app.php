@@ -185,7 +185,8 @@ return [
         /*
          * Package Service Providers...
          */
-        //\Sorethea\KubeAdmin\KubeAdminServiceProvider::class,
+
+
         /*
          * Application Service Providers...
          */
@@ -195,9 +196,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Sorethea\DocumentState\DocumentStateServiceProvider::class,
-        // Sorethea\DocumentWorkflow\DocumentWorkflowServiceProvider::class,
-        // Sorethea\Todo\TodoServiceProvider::class,
     ],
 
     /*
