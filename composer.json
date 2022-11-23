@@ -78,11 +78,15 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/sorethea/assign.git"
+            "url": "https://github.com/sorethea/todo.git"
         },
         {
             "type": "vcs",
             "url": "https://github.com/sorethea/document-state.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/sorethea/document-workflow.git"
         }
     ]
 }
