@@ -83,10 +83,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/sorethea/document-state.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/sorethea/document-workflow.git"
         }
     ]
 }
