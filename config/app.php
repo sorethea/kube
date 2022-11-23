@@ -196,7 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Sorethea\DocumentState\DocumentStateServiceProvider::class,
-        Sorethea\DocumentWorkflow\DocumentWorkflowServiceProvider::class,
+        //Sorethea\DocumentWorkflow\DocumentWorkflowServiceProvider::class,
         Sorethea\Todo\TodoServiceProvider::class,
     ],
 
