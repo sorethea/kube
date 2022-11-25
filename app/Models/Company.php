@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Sorethea\DocumentState\Traits\DocumentStateTrait;
+use Sorethea\Todo\Traits\TodoTrait;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -13,7 +14,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Company extends Model implements HasMedia
 {
-    use InteractsWithMedia, DocumentStateTrait;
+    use InteractsWithMedia, /*DocumentStateTrait,*/ TodoTrait;
 
 //    protected static function booted()
 //    {

@@ -62,18 +62,18 @@ class CompanyResource extends Resource
                 Tables\Columns\TextColumn::make("abbr")->searchable()->sortable(),
                 Tables\Columns\TextColumn::make("parent.name")->searchable(),
                 Tables\Columns\BooleanColumn::make("group"),
-                Tables\Columns\BadgeColumn::make("state")
-                    ->label("Status")
-                    ->enum([
-                    null => "Not Available",
-                    0 => config("document-state.status")[0],
-                    1 => config("document-state.status")[1],
-                    2 => config("document-state.status")[2],
-                ])->colors([
-                    "primary",
-                    "success"=>1,
-                    "danger"=>2,
-                ]),
+//                Tables\Columns\BadgeColumn::make("state")
+//                    ->label("Status")
+//                    ->enum([
+//                    null => "Not Available",
+//                    0 => config("document-state.status")[0],
+//                    1 => config("document-state.status")[1],
+//                    2 => config("document-state.status")[2],
+//                ])->colors([
+//                    "primary",
+//                    "success"=>1,
+//                    "danger"=>2,
+//                ]),
             ])
             ->filters([
                 //
