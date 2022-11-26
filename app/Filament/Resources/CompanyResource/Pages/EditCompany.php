@@ -27,7 +27,7 @@ class EditCompany extends EditRecord
                     //BelongsToManyMultiSelect::make("causer")->label("Reviewer")->relationship("causer","name")->required(),
                 ])
                 //->requiresConfirmation()
-                //->action(fn()=>$this->record->setState(1))
+                ->action(fn()=>$this->record->setState(1))
                 ->visible(fn()=>$this->record->state==0 && auth()->user()->can("companies.submit"))
                 ->color("success"),
             Actions\Action::make("cancel")
