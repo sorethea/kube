@@ -16,7 +16,10 @@ class EditCompany extends EditRecord
     protected function getActions(): array
     {
         return [
-            Actions\Action::make("submit")
+            Actions\Action::make("assign")
+                ->form([
+
+                ])
                 ->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
                 ->visible(fn()=>$this->record->state==0 && auth()->user()->can("companies.submit"))
