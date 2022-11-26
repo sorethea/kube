@@ -8,12 +8,10 @@ use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\BelongsToManyMultiSelect;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\MultiSelect;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
 
 class EditCompany extends EditRecord
 {
@@ -21,17 +19,18 @@ class EditCompany extends EditRecord
 
     protected function getActions(): array
     {
-        $causer = config("todo.causer");
+        $causer = \config("todo.causer");
         $causer = new $causer;
         $causerOptions =  $causer::all()->pluck("name","id");
         return [
-            Actions\Action::make("assign_to")
+            Actions\Action::make("assign")
                 ->form([
                     TextInput::make("title")->required(),
                     MarkdownEditor::make("comment")->required(),
-                    MultiSelect::make("assigner")->options($causerOptions)
+                    MultiSelect::make("assigner")->options($causerOptions)->required(),
+                    Select::make("priority")->options(\config())->default("opened")
                 ])
-                //->requiresConfirmation()
+                ->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
                 ->visible(fn()=>$this->record->state==0 && auth()->user()->can("companies.submit"))
                 ->color("success"),
