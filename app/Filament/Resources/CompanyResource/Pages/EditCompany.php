@@ -19,12 +19,13 @@ class EditCompany extends EditRecord
 
     protected function getActions(): array
     {
+        $causerOptions = app(config("todo.causer"))::all()->pluck("name","id")->toArray();
         return [
             Actions\Action::make("assign")
                 ->form([
                     TextInput::make("title")->required(),
                     MarkdownEditor::make("comment")->required(),
-                    MultiSelect::make("assigner")->options(config("todo.causer")::all()->pluck("name","id"))
+                    MultiSelect::make("assigner")->options($causerOptions)
                 ])
                 //->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
