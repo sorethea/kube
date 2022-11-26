@@ -30,7 +30,7 @@ class EditCompany extends EditRecord
                     MultiSelect::make("assigner")->options($causerOptions)->required(),
                     Select::make("priority")->options(\config("todo.priority.options"))->default("opened")
                 ])
-                ->requiresConfirmation()
+                //->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
                 ->visible(fn()=>$this->record->state==0 && auth()->user()->can("companies.submit"))
                 ->color("success"),
