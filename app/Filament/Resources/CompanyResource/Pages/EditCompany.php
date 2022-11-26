@@ -20,7 +20,8 @@ class EditCompany extends EditRecord
 
     protected function getActions(): array
     {
-        $causer = new config("todo.causer");
+        $causer = new app(config("todo.causer"));
+        dd($causer);
         $causerOptions =  $causer::get()->pluck("name","id");
         return [
             Actions\Action::make("assign")
