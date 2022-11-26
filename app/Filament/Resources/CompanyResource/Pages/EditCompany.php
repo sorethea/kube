@@ -28,7 +28,7 @@ class EditCompany extends EditRecord
                     TextInput::make("title")->required(),
                     MarkdownEditor::make("comment")->required(),
                     MultiSelect::make("assigner")->options($causerOptions)->required(),
-                    Select::make("priority")->options(\config())->default("opened")
+                    Select::make("priority")->options(\config("todo.priority.options"))->default("opened")
                 ])
                 ->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
