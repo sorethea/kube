@@ -24,7 +24,7 @@ class EditCompany extends EditRecord
                 ->form([
                     TextInput::make("title")->required(),
                     MarkdownEditor::make("comment")->required(),
-                    BelongsToManyMultiSelect::make("assign")->relationship("todo.causer","name")->required(),
+                    MultiSelect::make("assigner")->options(app(config("todo.causer"))->all()->pluck("name","id"))
                 ])
                 //->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
