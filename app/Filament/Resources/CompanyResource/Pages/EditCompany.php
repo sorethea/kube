@@ -5,6 +5,7 @@ namespace App\Filament\Resources\CompanyResource\Pages;
 use App\Filament\Resources\CompanyResource;
 use App\Models\Company;
 use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Model;
@@ -18,9 +19,9 @@ class EditCompany extends EditRecord
         return [
             Actions\Action::make("assign")
                 ->form([
-
+                    MarkdownEditor::make("comment")->required(),
                 ])
-                ->requiresConfirmation()
+                //->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
                 ->visible(fn()=>$this->record->state==0 && auth()->user()->can("companies.submit"))
                 ->color("success"),
