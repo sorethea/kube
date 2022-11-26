@@ -25,7 +25,7 @@ class EditCompany extends EditRecord
         $causer = new $causer;
         $causerOptions =  $causer::all()->pluck("name","id");
         return [
-            Actions\Action::make("assign")
+            Actions\Action::make("assign_to")
                 ->form([
                     TextInput::make("title")->required(),
                     MarkdownEditor::make("comment")->required(),
