@@ -28,13 +28,13 @@ class EditCompany extends EditRecord
                         TextInput::make("comment")->required(),
                         //MarkdownEditor::make("comment")->required(),
                         MultiSelect::make("assign_to")->options($causerOptions)->required(),
-                    ]),
+                    ])->columns(2),
                     Group::make([
                         Select::make("priority")
                             ->options(\config("todo.priority.options"))
                             ->default("low"),
                         DatePicker::make("completed_by"),
-                    ]),
+                    ])->columns(2),
                 ])
                 //->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
