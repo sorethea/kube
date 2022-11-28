@@ -22,7 +22,7 @@ class EditCompany extends EditRecord
     {
 
         return [
-            //$this->assignPageAction(),
+            $this->assignPageAction(),
             Actions\Action::make("cancel")
                 ->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(2))
