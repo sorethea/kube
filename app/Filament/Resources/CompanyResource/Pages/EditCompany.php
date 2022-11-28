@@ -25,7 +25,7 @@ class EditCompany extends EditRecord
                 ->form([
                     TextInput::make("title")->required(),
                     MarkdownEditor::make("comment")->required(),
-                    MultiSelect::make("assigner")->options($causerOptions)->required(),
+                    MultiSelect::make("assign_to")->options($causerOptions)->required(),
                     Select::make("priority")
                         ->options(\config("todo.priority.options"))
                         ->default("low"),
