@@ -4,6 +4,7 @@ namespace App\Filament\Resources\CompanyResource\Pages;
 
 use App\Filament\Resources\CompanyResource;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Group;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\Select;
@@ -23,13 +24,17 @@ class EditCompany extends EditRecord
         return [
             Actions\Action::make("assign")
                 ->form([
-                    TextInput::make("title")->required(),
-                    MarkdownEditor::make("comment")->required(),
-                    MultiSelect::make("assign_to")->options($causerOptions)->required(),
-                    Select::make("priority")
-                        ->options(\config("todo.priority.options"))
-                        ->default("low"),
-                    DatePicker::make("completed_by"),
+                    Group::make([
+                        TextInput::make("comment")->required(),
+                        //MarkdownEditor::make("comment")->required(),
+                        MultiSelect::make("assign_to")->options($causerOptions)->required(),
+                    ]),
+                    Group::make([
+                        Select::make("priority")
+                            ->options(\config("todo.priority.options"))
+                            ->default("low"),
+                        DatePicker::make("completed_by"),
+                    ]),
                 ])
                 //->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(1))
