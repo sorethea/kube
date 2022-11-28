@@ -11,35 +11,18 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Sorethea\Todo\Traits\AssignTrait;
 
 class EditCompany extends EditRecord
 {
+    use AssignTrait;
     protected static string $resource = CompanyResource::class;
 
     protected function getActions(): array
     {
-        $causer = \config("todo.causer");
-        $causer = new $causer;
-        $causerOptions =  $causer::all()->pluck("name","id");
+
         return [
-            Actions\Action::make("assign")
-                ->form([
-                    Group::make([
-                        TextInput::make("comment")->required(),
-                        //MarkdownEditor::make("comment")->required(),
-                        MultiSelect::make("assign_to")->options($causerOptions)->required(),
-                    ])->columns(2),
-                    Group::make([
-                        Select::make("priority")
-                            ->options(\config("todo.priority.options"))
-                            ->default("low"),
-                        DatePicker::make("completed_by"),
-                    ])->columns(2),
-                ])
-                //->requiresConfirmation()
-                ->action(fn()=>$this->record->setState(1))
-                ->visible(fn()=>$this->record->state==0 && auth()->user()->can("companies.submit"))
-                ->color("success"),
+            $this->assignPageAction(),
             Actions\Action::make("cancel")
                 ->requiresConfirmation()
                 ->action(fn()=>$this->record->setState(2))
